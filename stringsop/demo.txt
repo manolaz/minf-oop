@@ -1,0 +1,29 @@
+Categories
+    Spring
+    REST
+    Java
+    Security
+    Persistence
+    Jackson
+    HTTP Client-Side
+    Kotlin
+
+Series
+    Java “Back to Basics” Tutorial
+    Jackson JSON Tutorial
+    HttpClient 4 Tutorial
+    REST with Spring Tutorial
+    Spring Persistence Tutorial
+    Security with Spring
+
+About
+    About Baeldung
+    The Courses
+    Consulting Work
+    Meta Baeldung
+    The Full Archive
+    Write for Baeldung
+    Editors
+    Our Partners
+    Advertise on Baeldung
+
