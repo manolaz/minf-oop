@@ -12,7 +12,11 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 
 import java.util.Comparator;
+import java.util.Date;
 
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 /**
  * OOP Day2
  * Author: NGUYEN VU ANH TRUNG
@@ -215,7 +219,7 @@ public class Day2 {
         }
     }
 
-    public void ex24( String word, String permutations) {
+    public void ex24(String word, String permutations) {
         // With a string as user input, print all permutation of this string.
         if (word != null) {
             System.out.print(permutations);
@@ -232,6 +236,15 @@ public class Day2 {
                 alpha[ch - 'a'] = true;
             }
         }
+    }
+    
+    public static Stream<String> permutationStream(String str) {
+        if (str.isEmpty()) {
+            return Stream.of("");
+            }
+        return IntStream.range(0, str.length()).boxed().flatMap(
+            i -> permutationStream(str.substring(0, i) + str.substring(i + 1)).map(
+                        t -> str.charAt(i) + t));
     }
 
     public String ex25(String word) {
@@ -256,5 +269,7 @@ public class Day2 {
         System.out.println("Enter the String:");
         String str = input.nextLine();
         System.out.println(str);
+        // permutationStream
+        // permutations("xyz").parallel().collect(Collectors.toSet()).stream().sorted().forEach(System.out::println);
     }   
 }
