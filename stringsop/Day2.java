@@ -123,11 +123,12 @@ public class Day2 {
         }
     }
     
-    public int ex8(String str) {
-        if (str != null) {
+    public int ex8(String number) {
+        // With an integer as user input, sum all the digit of this integer.
+        if (number != null) {
             int sum = 0;
-            for (int i = 0; i < str.length(); i++) {
-                sum += Character.getNumericValue(str.charAt(i));
+            for (int i = 0; i < number.length(); i++) {
+                sum += Character.getNumericValue(number.charAt(i));
             }
             return sum;
         } else {
@@ -211,6 +212,25 @@ public class Day2 {
             }
         } else {
             System.out.println();
+        }
+    }
+
+    public void ex24( String word, String permutations) {
+        // With a string as user input, print all permutation of this string.
+        if (word != null) {
+            System.out.print(permutations);
+        } else {
+            boolean alpha[] = new boolean[26];
+            for (int i = 0; i < word.length(); i++) {
+                char ch = word.charAt(i);
+                // Rest of the string after excluding
+                // the ith character
+                String ros = word.substring(0, i) + word.substring(i + 1);
+
+                if (alpha[ch - 'a'] == false)
+                    ex24(ros, permutations + ch);
+                alpha[ch - 'a'] = true;
+            }
         }
     }
 
