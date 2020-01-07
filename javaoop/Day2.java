@@ -1,4 +1,4 @@
-package stringsop;
+package javaoop;
 
 import java.util.ArrayList;
 import java.util.Collections;
