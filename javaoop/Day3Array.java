@@ -32,7 +32,7 @@ public class Day3Array {
         // find the k largest elements in this array.
         if (naturals != null) {
             // int last = naturals.length - 1;
-            int[] result = Arrays.sort(naturals, Collections.reverseOrder());
+            int[] result = Arrays.sort(naturals, Collections.reverseOrder()).toArray;
             return result[0];
         } else {
             return naturals;
@@ -179,6 +179,77 @@ public class Day3Array {
             }
         }
         return result;
+    }
+
+    public static int ex5_findArrayIndex(int[] subArray, int[] parentArray) {
+        // With two arrays of integers in any order, 
+        // check if one array is the subarray of the other.  
+        // RETURN POSITION of CHILD in parentArray
+        if (subArray.length == 0) {
+            return -1;
+        }
+        int sL = subArray.length;
+        int l = parentArray.length - subArray.length;
+        int k = 0;
+        for (int i = 0; i < l; i++) {
+            if (parentArray[i] == subArray[k]) {
+                for (int j = 0; j < subArray.length; j++) {
+                    if (parentArray[i + j] == subArray[j]) {
+                        sL--;
+                        if (sL == 0) {
+                            return i;
+                        }
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+    
+    // static int ex6_subelement(int arr[], int n) {
+    //     // With two arrays of integers in any order, 
+    //     // find the longest duplicate subarray between these arrays.
+    //     HashSet<Integer> S = new HashSet<Integer>();
+    //     int ans = 0;
+
+    //     // Hash all the array elements
+    //     for (int i = 0; i < n; ++i)
+    //         S.add(arr[i]);
+
+    //     // check each possible sequence from the start
+    //     // then update optimal length
+    //     for (int i = 0; i < n; ++i) {
+    //         // if current element is the starting
+    //         // element of a sequence
+    //         if (!S.contains(arr[i] - 1)) {
+    //             // Then check for next elements in the
+    //             // sequence
+    //             int j = arr[i];
+    //             while (S.contains(j))
+    //                 j++;
+
+    //             // update optimal length if this length
+    //             // is more
+    //             if (ans < j - arr[i])
+    //                 ans = j - arr[i];
+    //         }
+    //     }
+    //     return ans;
+    // }
+
+    public static void ex6_longest_subarray(int a[], int b[]) {
+        // With two arrays of integers in any order,
+        // find the longest duplicate subarray between these arrays.
+        int n = a.length;
+        int m = b.length;
+        for (int i = 0; i < n; i++) {
+            int j;
+            for (j = 0; j < m; j++)
+                if (a[i] == b[j])
+                    System.out.print(a[i] + " ");
+            if (j == m)
+                break;
+        }
     }
 
     static int ext7(int arr[], int n) {
