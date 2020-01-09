@@ -1,5 +1,6 @@
 package javaoop;
 
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Collections;
@@ -30,27 +31,11 @@ public class Day3Array {
         // With an array of integers in any order and a number k,
         // find the k largest elements in this array.
         if (naturals != null) {
-            int i, j, temp;
-            boolean swapped;
-            for (i = 0; i < n - 1; i++) {
-                swapped = false;
-                for (j = 0; j < n - i - 1; j++) {
-                    if (naturals[j] > naturals[j + 1]) {
-                        // swap arr[j] and arr[j+1]
-                        temp = naturals[j];
-                        naturals[j] = naturals[j + 1];
-                        naturals[j + 1] = temp;
-                        swapped = true;
-                    }
-                }
-                // IF no two elements were
-                // swapped by inner loop, then break
-                if (swapped == false)
-                    break;
-            }
-            return naturals;
+            // int last = naturals.length - 1;
+            int[] result = Arrays.sort(naturals, Collections.reverseOrder());
+            return result[0];
         } else {
-            return [0];
+            return naturals;
         }
     }
     
@@ -195,33 +180,99 @@ public class Day3Array {
         }
         return result;
     }
+
+    static int ext7(int arr[], int n) {
+        // With an arrays of integers, 
+        // remove all the duplicate values in this arrays. 
+        // Return, if array is empty
+        // or contains a single element
+        if (n == 0 || n == 1)
+            return n;
+
+        int[] temp = new int[n];
+
+        // Start traversing elements
+        int j = 0;
+        for (int i = 0; i < n - 1; i++)
+            // If current element is not equal
+            // to next element then store that
+            // current element
+            if (arr[i] != arr[i + 1])
+                temp[j++] = arr[i];
+        // Store the last element as whether
+        // it is unique or repeated, it hasn't
+        // stored previously
+        temp[j++] = arr[n - 1];
+        // Modify original array
+        for (int i = 0; i < j; i++)
+            arr[i] = temp[i];
+        return j;
+    }
     
+    
+    public static void ex8(int[] a, int[] b) {
+        int res[];
+        // Concatenate two arrays
+        int n = a.length;
+        int m = b.length;
+        int i = 0, j = 0, k = 0;
+        Arrays.sort(a);
+        Arrays.sort(b);
+        // Merge two sorted arrays into res[]
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        while (i < n && j < m) {
+            if (a[i] <= b[j]) {
+                res[k] = a[i];
+                i += 1;
+                k += 1;
+            } else {
+                res[k] = b[j];
+                j += 1;
+                k += 1;
+            }
+        }
 
-    public int[] ex9(int[] first, int[] second) {
-        int[] res =  new int[];
+        while (i < n) { // Merging remaining
+                        // elements of a[] (if any)
+            res[k] = a[i];
+            i += 1;
+            k += 1;
+        }
+        while (j < m) { // Merging remaining
+                        // elements of b[] (if any)
+            res[k] = b[j];
+            j += 1;
+            k += 1;
+        }
+    }
 
-        quickSort(first);
-        quickSort(second, begin, end);
-
-
-        return res;
+    public static void ex9(int a[], int b[]) {
+        // With two arrays of integers, 
+        // list all the values in the first array which are not in the second array.
+        int n = a.length;
+        int m = b.length; 
+        for (int i = 0; i < n; i++) {
+            int j;
+            for (j = 0; j < m; j++)
+                if (a[i] == b[j])
+                    break;
+            if (j == m)
+                System.out.print(a[i] + " ");
+        }
     }
 
     public static void main(String args[]) {
-        Scanner input = new Scanner(System.in);
-        System.out.println("Enter naturals list:");
-        String str = input.nextLine();
-        System.out.println(str);
-        int[] actual = { 5, 1, 6, 2, 3, 4 };
-        int[] expected = { 1, 2, 3, 4, 5, 6 };
+        // Scanner input = new Scanner(System.in);
+        // System.out.println("Enter naturals list:");
+        // String str = input.nextLine();
+        // System.out.println(str);
+        int actual[] = { 5, 1, 6, 2, 3, 4 };
+        int second[]= { 10, 20, 20, 30, 30, 40, 50, 50 };
+        int expected[] = { 1, 2, 3, 4, 5, 6 };
         //  run MERGE SORT
         mergeSort(actual, actual.length);
-
-        // Exercise 3.
-        // Sub set SUM
         int set[] = { 3, 34, 4, 12, 5, 2 };
-        int sum = 9;
-        int n = set.length;
-        
     }
 }
