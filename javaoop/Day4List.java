@@ -65,9 +65,9 @@ public class Day4List {
 
     // b) Print in reverse order.
     // Read last line of the file
-    public void readFromLast(String path){
+    public void readFromLast(File file) throws Exception {
         
-    }
+        }
 
     // c) Print all words (ending in "s").
     public void printWordsS(String filename) {
@@ -98,25 +98,11 @@ public class Day4List {
     }
 
     // f) Print the words and the frequency
-    public void printWordFrequency(String filename) {
-        // With a file name as user input and an integer n, 
-        // read first n lines from a file. 
-        if (filename != null) {
-            try {
-                RandomAccessFile file = new RandomAccessFile(filename, "r");
-                String line;
-                // READING lines
-                while ((line = file.readLine()) != null ) {
-
-                    System.out.println(line);
-                }
-                file.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else {
-            System.out.println();
-        }
+    public int printWordFrequency(String filename) {
+        ArrayList<String> words_list = printFileContent(filename);
+        int frequency = words_list.size();
+        System.out.println(frequency);
+        return frequency;
     }
     
     // Exercise 2:
