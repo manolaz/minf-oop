@@ -40,9 +40,10 @@ public class Day4List {
     // g) Replaces every word ending with an "es" with its lower version.
     // h) Removes every word in the list ending with an "as", case-insensitively
     // i) Insert a * after each element
-    public void printFileContent(String filename) {
+    
+    public ArrayList<String> printFileContent(String filename) {
+        ArrayList<String> words = new ArrayList<String>();
         if (filename != null) {
-            List<String> words = new ArrayList<String>();
             try {
                 RandomAccessFile file = new RandomAccessFile(filename, "r");
                 String line;
@@ -59,6 +60,7 @@ public class Day4List {
         } else {
             System.out.println();
         }
+        return words;
     }
 
     // b) Print in reverse order.
