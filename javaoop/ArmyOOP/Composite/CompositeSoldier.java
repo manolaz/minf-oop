@@ -1,6 +1,9 @@
 package javaoop.ArmyOOP.Composite;
 
 import javaoop.ArmyOOP.Soldier;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -8,14 +11,13 @@ import java.util.List;
  */
 public abstract class CompositeSoldier implements Soldier{
 
-    List<Soldier> listSodier = new List<Soldier>;
-
-    // public boolean defend(int amor, int damage, int health) {
-    //     return (damage - amor) > health;
-    // }
+    protected List<Soldier> listSodiers = new ArrayList<Soldier>();
 
     public boolean defend(int hits) {
-        int damage = (int) Math.ceil(force / listSodier.size());
+        int damage = (int) Math.ceil(hits / listSodiers.size());
+        boolean checkDefend = false;
+        Iterator<Soldier> iter = listSodiers.iterator();
+
         if (damage > this.health) {
             return false;
         } else {
