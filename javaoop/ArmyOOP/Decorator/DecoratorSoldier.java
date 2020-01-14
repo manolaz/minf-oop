@@ -52,4 +52,10 @@ public class DecoratorSoldier implements Soldier {
         // TODO Auto-generated method stub
         return false;
     }
+
+    @Override
+    public boolean accept() {
+        // TODO Auto-generated method stub
+        return false;
+    }
 }

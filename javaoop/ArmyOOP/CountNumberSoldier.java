@@ -5,6 +5,10 @@ import javaoop.ArmyOOP.Decorator.DecoratorSoldier;
 import javaoop.ArmyOOP.Decorator.Spearmen;
 import javaoop.ArmyOOP.Decorator.Swordmen;
 import javaoop.ArmyOOP.Visitor.*;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /**
  * CountNumberSoldier
  */
@@ -26,12 +30,6 @@ public class CountNumberSoldier implements Visitor {
     }
 
     @Override
-    public void visit(CompositeSoldier s) {
-        System.out.println("Count Number " + s.toString() + "in Army");
-        numbersInfantrymen++;
-    }
-
-    @Override
     public void visit(DecoratorSoldier s) {
         System.out.println("Count Number " + s.toString() + "in Army");
         numbersInfantrymen++;
@@ -48,4 +46,18 @@ public class CountNumberSoldier implements Visitor {
         System.out.println("Count Number " + s.toString() + "in Army");
         numbersInfantrymen++;
     }
+
+
+    @Override
+    public void visit(CompositeSoldier s) {
+
+        List<Soldier> troops = s.getListSoldiers();
+
+        int noHorsemen = s.getNumberofHorsemen();
+        int noInfantrymen = s.getNumberofInfantrymen();
+
+        System.out.println("Count Number " + s.toString() + "in Army");
+        numbersInfantrymen++;
+    }
+
 }

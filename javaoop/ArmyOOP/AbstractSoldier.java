@@ -35,4 +35,10 @@ public class AbstractSoldier implements Soldier {
     public void getName() {
         System.out.println("Abstract Soldier.");
     }
+
+    @Override
+    public boolean accept() {
+        // TODO Auto-generated method stub
+        return false;
+    }
 }

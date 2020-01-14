@@ -75,4 +75,8 @@ public abstract class CompositeSoldier implements Soldier{
         return false;
     }
 
+    public List<Soldier> getListSoldiers() {
+        return this.listSoldier;
+    }
+
 }

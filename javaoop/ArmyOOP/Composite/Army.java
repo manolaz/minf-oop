@@ -7,7 +7,8 @@ import javaoop.ArmyOOP.Observer.*;
  */
 public class Army extends CompositeSoldier implements MObserver{
     String name;
-    Army(String new_name) {
+    
+    public void Army(String new_name) {
         this.name = new_name;
     }
 

@@ -2,6 +2,7 @@ package javaoop.ArmyOOP;
 
 import javaoop.ArmyOOP.Composite.*;
 import javaoop.ArmyOOP.Decorator.*;
+import javaoop.ArmyOOP.Equipment.*;
 import javaoop.ArmyOOP.*;
 import javaoop.ArmyOOP.Visitor.*;
 
