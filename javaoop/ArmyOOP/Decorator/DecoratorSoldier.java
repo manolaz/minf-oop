@@ -7,48 +7,43 @@ import javaoop.ArmyOOP.Equipment.Equipment;
  * DecoratorSoldier
  */
 public class DecoratorSoldier implements Soldier {
-
-    private Equipment equip;
     
     private final int NUMBER_EQUIPEMENT = 5;
-
     private Soldier soldier;
+    private Equipment equipment;
     public DecoratorSoldier() {
         super();
     }
-    public DecoratorSoldier(Soldier sol) {
-        this.soldier = sol;
+
+    public DecoratorSoldier(Soldier soldier) {
+        this.soldier = soldier;
     }
 
-    public boolean defend(int amor, int damage, int health) {
-        return (damage - amor) > health;
+    public void addEquipment(Equipment equipment) {
+        this.equipment = equipment;
     }
 
-    public int getNumberEquipment() {
-        int noEquip = (soldier instanceof DecoratorSoldier) ? ((DecoratorSoldier) soldier).getNumberEquipment() : 0;
-        return this.equip.getDefend();
-    }
-
-    public void addEquipment(Equipment eq) {
-        int currEquipment = 0;
-        // int noEquip = (soldier instanceof DecoratorSoldier) ? ((DecoratorSoldier) soldier).getNumberEquipment() : 0;
-        // return this.equip.getDefend();
+    public Equipment getEquipment() {
+        return this.equipment;
     }
 
     @Override
-    public boolean defend() {
-        // TODO Auto-generated method stub
-        return false;
+    public int hit() {
+        if (equipment != null)
+            return soldier.hit() + equipment.getAttack();
+        else
+            return soldier.hit();
     }
-    
-    // public void getDefend(Equipment e) {
-    //     this.equip.getDefend() += e.getDefend();
-    // }
 
-    // public void getAttack(Equipment e) {
-    //     this.damage += e.damage;
-    // }
+    @Override
+    public boolean defend(int force) {
+        if (equipment != null)
+            return soldier.defend(force - equipment.getDefend());
+        return soldier.defend(force);
+    }
 
-
+    public void getName() {
+        System.out.println("Decorator Soldier");
+    };
     
 }
