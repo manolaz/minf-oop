@@ -8,7 +8,7 @@ import javaoop.ArmyOOP.Observer.*;
 public class Army extends CompositeSoldier implements MObserver{
     String name;
     
-    public void Army(String new_name) {
+    public Army(String new_name) {
         this.name = new_name;
     }
 
@@ -20,5 +20,11 @@ public class Army extends CompositeSoldier implements MObserver{
     public void getName() {
         // TODO Auto-generated method stub
         System.out.println("Composite Soldier");
+    }
+
+    @Override
+    public boolean accept() {
+        // TODO Auto-generated method stub
+        return false;
     }
 }
