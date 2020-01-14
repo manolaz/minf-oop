@@ -8,35 +8,44 @@ import javaoop.ArmyOOP.Visitor.*;
 /**
  * CountNumberSoldier
  */
-public class CountNumberSoldier implements Visitor{
+public class CountNumberSoldier implements Visitor {
+    
+    private int numbersInfantrymen;
+    private int numbersHorsemen;
 
     @Override
     public void visit(Infantrymen s) {
         System.out.println("Count Number " + s.toString() + "in Army");
+        numbersInfantrymen++;
     }
 
     @Override
     public void visit(Horsemen s) {
         System.out.println("Count Number " + s.toString() + "in Army");
+        numbersHorsemen++;
     }
 
     @Override
     public void visit(CompositeSoldier s) {
         System.out.println("Count Number " + s.toString() + "in Army");
+        numbersInfantrymen++;
     }
 
     @Override
     public void visit(DecoratorSoldier s) {
         System.out.println("Count Number " + s.toString() + "in Army");
+        numbersInfantrymen++;
     }
 
     @Override
     public void visit(Spearmen s) {
         System.out.println("Count Number " + s.toString() + "in Army");
+        numbersInfantrymen++;
     }
 
     @Override
     public void visit(Swordmen s) {
         System.out.println("Count Number " + s.toString() + "in Army");
+        numbersInfantrymen++;
     }
 }

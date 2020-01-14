@@ -56,4 +56,23 @@ public abstract class CompositeSoldier implements Soldier{
         return checkDefend;
     }
 
+
+    public int getNumberofWoundeds() {
+        return 5;
+    }
+
+    public int getNumberofInfantrymen() {
+        return 100;
+    }
+
+    public int getNumberofHorsemen() {
+        return 50;
+    }
+
+    @Override
+    public boolean isAlive() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
 }
