@@ -44,7 +44,7 @@ public class CountNumberSoldier implements Visitor {
     @Override
     public void visit(Swordmen s) {
         System.out.println("Count Number " + s.toString() + "in Army");
-        numbersInfantrymen++;
+        numbersInfantrymen++;   
     }
 
 
@@ -53,11 +53,17 @@ public class CountNumberSoldier implements Visitor {
 
         List<Soldier> troops = s.getListSoldiers();
 
-        int noHorsemen = s.getNumberofHorsemen();
-        int noInfantrymen = s.getNumberofInfantrymen();
+        // int noHorsemen = s.getNumberofHorsemen();
+        // int noInfantrymen = s.getNumberofInfantrymen();
 
-        System.out.println("Count Number " + s.toString() + "in Army");
-        numbersInfantrymen++;
+        for (Soldier soldier : troops) {
+            soldier.accept(this);
+        }
+
+        System.out.println("COUNT INFANTRY" + "in Army");
+        System.out.println("COUNT CALVARY" + "in Army");
+        // noTotalSoldiers
+        
     }
 
 }

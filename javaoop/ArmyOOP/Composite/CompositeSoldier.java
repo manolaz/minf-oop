@@ -46,13 +46,6 @@ public abstract class CompositeSoldier implements Soldier{
                 iter.remove();
         }
 
-        // for (Soldier s: listSoldier) {
-        // if (s.defend(damage))
-        // checkDefend = true;
-        // else
-        // listSoldier.remove(s);
-        // }
-
         return checkDefend;
     }
 
@@ -62,16 +55,31 @@ public abstract class CompositeSoldier implements Soldier{
     }
 
     public int getNumberofInfantrymen() {
-        return 100;
+        int countTotal = 0;
+        for (Soldier soldier : listSoldier) {
+            if (soldier.toString() != "Horsemen") {
+                countTotal += 1;
+            }
+        }
+        return countTotal;
     }
 
     public int getNumberofHorsemen() {
-        return 50;
+        int countTotal = 0;
+        for (Soldier soldier : listSoldier) {
+            if (soldier.toString() == "Horsemen") {
+                countTotal += 1;
+            }
+        }
+        return countTotal;
     }
 
     @Override
     public boolean isAlive() {
-        // TODO Auto-generated method stub
+        for (Soldier s : listSoldier) {
+            if (s.isAlive())
+                return true;
+        }
         return false;
     }
 
