@@ -42,8 +42,9 @@ public class DecoratorSoldier implements Soldier {
         return soldier.defend(force);
     }
 
+    @Override
     public void getName() {
         System.out.println("Decorator Soldier");
-    };
+    }
     
 }

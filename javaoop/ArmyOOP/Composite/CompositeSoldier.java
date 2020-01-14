@@ -16,9 +16,11 @@ public abstract class CompositeSoldier implements Soldier{
         listSoldier = new ArrayList<Soldier>();
     }
 
+    // (d) Count the number of soldier with the life less than 10 (can be moved to the hospital).
     public void addSoldier(Soldier s) {
         listSoldier.add(s);
     }
+
 
     @Override
     public int hit() {
