@@ -47,4 +47,9 @@ public class DecoratorSoldier implements Soldier {
         System.out.println("Decorator Soldier");
     }
     
+    @Override
+    public boolean isAlive() {
+        // TODO Auto-generated method stub
+        return false;
+    }
 }
