@@ -5,19 +5,34 @@ package javaoop.ArmyOOP;
  */
 public class AbstractSoldier implements Soldier {
     
-    private int health;
-    // private int strenght = 0;
+    private int life;
+    private int strenght = 0;
 
-    AbstractSoldier(int health) {
-        this.health = health;
+    AbstractSoldier(int life) {
+        this.life = life;
     }
 
-    public boolean defend(int damage) {
-        if (damage > this.health) {
-            return false;
-        } else {
-            int alive = this.health - damage;
-            return alive > 0;
-        }
+    public boolean defend(int force) {
+        if (force <= 0)
+            return true;
+        life = (life > force) ? life - force : 0;
+        return life > 0;
+    }
+
+    @Override
+    public boolean isAlive() {
+        // TODO Auto-generated method stub
+        return false;
+    }
+
+    @Override
+    public int hit() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void getName() {
+        System.out.println("Abstract Soldier.");
     }
 }

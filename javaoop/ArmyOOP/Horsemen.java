@@ -19,4 +19,5 @@ public class Horsemen extends AbstractSoldier{
     public String toString() {
         return "Horsemen";
     }
+   
 }
