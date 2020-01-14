@@ -5,9 +5,18 @@ package javaoop.ArmyOOP;
  */
 public class Horsemen extends AbstractSoldier{
 
-    private static final int POWER = 5;
+    private static final int FORCE_HORSEMEN = 2;
 
-    AbstractSoldier(int health){
-        return s;
+    public Horsemen(int life) {
+        super(life);
+    }
+
+    public int hit() {
+        return FORCE_HORSEMEN;
+    }
+
+    @Override
+    public String toString() {
+        return "Horsemen";
     }
 }

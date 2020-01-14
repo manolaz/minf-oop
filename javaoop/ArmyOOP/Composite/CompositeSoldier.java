@@ -9,26 +9,49 @@ import java.util.List;
 /**
  * CompositeSoldier
  */
-public abstract class CompositeSoldier implements Soldier{
+public abstract class CompositeSoldier implements Soldier{    
+    protected List<Soldier> listSoldier;
 
-    protected List<Soldier> listSodiers = new ArrayList<Soldier>();
+    public CompositeSoldier() {
+        listSoldier = new ArrayList<Soldier>();
+    }
 
-    public boolean defend(int hits) {
-        int damage = (int) Math.ceil(hits / listSodiers.size());
-        boolean checkDefend = false;
-        Iterator<Soldier> iter = listSodiers.iterator();
+    public void addSoldier(Soldier s) {
+        listSoldier.add(s);
+    }
 
-        if (damage > this.health) {
-            return false;
-        } else {
-            int alive = this.health - damage;
-            return alive > 0;
+    @Override
+    public int hit() {
+        int totalHit = 0;
+        for (Soldier s : listSoldier) {
+            if (s != null)
+                totalHit += s.hit();
         }
+        return totalHit;
+    }
 
-        
+    @Override
+    public boolean defend(int force) {
+        int damage = (int) Math.ceil(force / listSoldier.size());
+        boolean checkDefend = false;
+        Iterator<Soldier> iter = listSoldier.iterator();
 
         while (iter.hasNext()) {
-            
+            Soldier s = iter.next();
+            if (s.defend(damage))
+                checkDefend = true;
+            else
+                iter.remove();
         }
+
+        // for (Soldier s: listSoldier) {
+        // if (s.defend(damage))
+        // checkDefend = true;
+        // else
+        // listSoldier.remove(s);
+        // }
+
+        return checkDefend;
     }
+
 }
