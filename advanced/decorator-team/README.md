@@ -8,3 +8,6 @@ Employee: thực hiện công việc doTask, tham gia vào dự án join, rời 
 Team member: báo cáo task được giao reportTask, cộng tác với các thành viên khác (coordinate with others).
 Team lead: lên kế hoạch planning, hỗ trợ các thành viên phát triển motivate, theo dõi chất lượng công việc và thời gian monitor.
 Manager: tạo các yêu cầu dự án createRequirement, giao nhiệm vụ cho thành viên assignTask, quản lý tiến độ dự án manageProgress.
+# Run instructions
+
+Run Main on PROJECT.java
