@@ -19,11 +19,12 @@ public class Leader extends EmployeeDecorator {
       }
 
     private void planning() {
-    System.out.println(this.name + "is planning.");
+        System.out.println(this.name + "is planning.");
     }
 
     private void monitor() {
-    System.out.println(this.name + "is monitoring his members.");
+        System.out.println(this.name + "is monitoring his members.");
     }
 
+    
 }

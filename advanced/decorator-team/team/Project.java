@@ -9,13 +9,13 @@ public class Project {
         ConcreteEmployee con = new ConcreteEmployee();
 
         Member mem = new Member(con, "Marco Polo");
-        System.out.println(mem);
+        mem.doTask();
 
         Leader lead = new Leader(mem, "Lead");
-        System.out.println(lead);
+        lead.doTask();
 
         Manager mana = new Manager(lead, "Manager");
-        System.out.println(mana);
+        mana.doTask();
         
       }
 }
